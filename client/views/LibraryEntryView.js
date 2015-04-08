@@ -8,6 +8,10 @@ var LibraryEntryView = Backbone.View.extend({
   events: {
     'click': function() {
       this.model.play();
+      // only call enqueue if currentSong is not itself
+      if (!this.model.get('beingPlayed')) {
+        this.model.enqueue();
+      }
     }
   },
 
