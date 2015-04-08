@@ -1,0 +1,27 @@
+{
+  "name": "2015-03-mytunes",
+  "version": "0.0.0",
+  "description": "",
+  "main": "client/index.html",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.11.1",
+    "grunt-contrib-watch": "~0.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kurtbartholomew/2015-03-mytunes.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/kurtbartholomew/2015-03-mytunes/issues"
+  }
+}
