@@ -1,0 +1,10 @@
+.songQueue {
+  margin-top: 30px;
+}
+.songQueue .songQueueSong:nth-child(2n+0) {
+  background-color: #D3D3D3;
+}
+.songQueueSongColumn {
+  display: inline-block;
+  width: 300px;
+}
