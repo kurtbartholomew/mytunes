@@ -17,6 +17,18 @@ var SongQueue = Songs.extend({
     this.on('dequeue', function(song) {
       this.remove(song);
     });
+    this.on('moveUp', function(song) {
+      var songIndex = this.indexOf(song);
+      var previousSong = this.at(songIndex - 1);
+      this.models[songIndex] = previousSong;
+      this.models[songIndex - 1] = song;
+    });
+    this.on('moveDown', function(song) {
+      var songIndex = this.indexOf(song);
+      var nextSong = this.at(songIndex + 1);
+      this.models[songIndex] = nextSong;
+      this.models[songIndex + 1] = song;
+    });
   },
 
   playFirst: function(){
