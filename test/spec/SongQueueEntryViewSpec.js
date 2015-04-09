@@ -18,16 +18,19 @@ describe('SongQueueEntryView', function() {
     expect(fakeSong.dequeue).to.have.been.called;
   });
 
-  // it('renders when add or remove event fires from the song queue collection', function(){
-  //   sinon.spy(SongQueueEntryView.prototype, 'render');
-  //   view = new SongQueueEntryView({model: fakeSong});
-  //   view.collection.add({
-  //     artist: 'data',
-  //     url: '/test/testsong3.mp3',
-  //     title:'test song 3'
-  //   });
-  //   view.collection.pop();
-  //   expect(view.render).to.have.been.called;
-  // });
+  it('calls the model\'s moveUp function when clicking the Up button', function(){
+    sinon.spy(fakeSong, 'moveUp');
+    view = new SongQueueEntryView({model: fakeSong});
+    view.render();
+    view.$el.children().find('.moveUp').click();
+    expect(fakeSong.moveUp).to.have.been.called;
+  });
 
+  it('calls the model\'s moveDown function when clicking the Down button', function(){
+    sinon.spy(fakeSong, 'moveDown');
+    view = new SongQueueEntryView({model: fakeSong});
+    view.render();
+    view.$el.children().find('.moveDown').click();
+    expect(fakeSong.moveDown).to.have.been.called;
+  });
 });
