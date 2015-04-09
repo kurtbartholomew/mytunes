@@ -2,6 +2,10 @@
 var SongQueue = Songs.extend({
 
   initialize: function(){
+  },
+
+  playFirst: function(){
+    this.shift().play();
   }
 
 });
