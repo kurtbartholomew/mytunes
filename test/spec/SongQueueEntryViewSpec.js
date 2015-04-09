@@ -22,7 +22,7 @@ describe('SongQueueEntryView', function() {
     sinon.spy(fakeSong, 'moveUp');
     view = new SongQueueEntryView({model: fakeSong});
     view.render();
-    view.$el.children().find('.moveUp').click();
+    view.$el.children('.moveUp').click();
     expect(fakeSong.moveUp).to.have.been.called;
   });
 
@@ -30,7 +30,7 @@ describe('SongQueueEntryView', function() {
     sinon.spy(fakeSong, 'moveDown');
     view = new SongQueueEntryView({model: fakeSong});
     view.render();
-    view.$el.children().find('.moveDown').click();
+    view.$el.children('.moveDown').click();
     expect(fakeSong.moveDown).to.have.been.called;
   });
 });
