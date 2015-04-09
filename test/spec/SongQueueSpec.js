@@ -87,22 +87,26 @@ describe('SongQueue', function() {
   describe('moveUp', function(){
     it('moves the song up one position in the queue', function(){
       var songQueue = new SongQueue();
-      songQueue.add(songData1);
-      songQueue.add(songData2);
-      songData2.moveUp();
-      expect(songQueue.at(0)).to.equal(songData2);
-      expect(songQueue.at(1)).to.equal(songData1);
+      var songModel1 = new SongModel(songData1);
+      var songModel2 = new SongModel(songData2);
+      songQueue.add(songModel1);
+      songQueue.add(songModel2);
+      songQueue.at(1).moveUp();
+      expect(songQueue.at(0)).to.equal(songModel2);
+      expect(songQueue.at(1)).to.equal(songModel1);
     });
   });
 
   describe('moveDown', function(){
     it('moves the song down one position in the queue', function(){
       var songQueue = new SongQueue();
-      songQueue.add(songData1);
-      songQueue.add(songData2);
-      songData1.moveDown();
-      expect(songQueue.at(0)).to.equal(songData2);
-      expect(songQueue.at(1)).to.equal(songData1);
+      var songModel1 = new SongModel(songData1);
+      var songModel2 = new SongModel(songData2);
+      songQueue.add(songModel1);
+      songQueue.add(songModel2);
+      songQueue.at(0).moveDown();
+      expect(songQueue.at(0)).to.equal(songModel2);
+      expect(songQueue.at(1)).to.equal(songModel1);
     });
   });
 });
