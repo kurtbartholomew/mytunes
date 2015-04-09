@@ -95,6 +95,16 @@ describe('SongQueue', function() {
       expect(songQueue.at(0)).to.equal(songModel2);
       expect(songQueue.at(1)).to.equal(songModel1);
     });
+
+    it('should not move the song at the beginning of the queue', function(){
+      var songQueue = new SongQueue();
+      var songModel1 = new SongModel(songData1);
+      var songModel2 = new SongModel(songData2);
+      songQueue.add(songModel1);
+      songQueue.add(songModel2);
+      songQueue.at(0).moveUp();
+      expect(songQueue.at(0)).to.equal(songModel1);
+    });
   });
 
   describe('moveDown', function(){
@@ -107,6 +117,16 @@ describe('SongQueue', function() {
       songQueue.at(0).moveDown();
       expect(songQueue.at(0)).to.equal(songModel2);
       expect(songQueue.at(1)).to.equal(songModel1);
+    });
+
+    it('should not move the song at the end of the queue', function(){
+      var songQueue = new SongQueue();
+      var songModel1 = new SongModel(songData1);
+      var songModel2 = new SongModel(songData2);
+      songQueue.add(songModel1);
+      songQueue.add(songModel2);
+      songQueue.at(1).moveDown();
+      expect(songQueue.at(1)).to.equal(songModel2);
     });
   });
 });
