@@ -19,15 +19,19 @@ var SongQueue = Songs.extend({
     });
     this.on('moveUp', function(song) {
       var songIndex = this.indexOf(song);
-      var previousSong = this.at(songIndex - 1);
-      this.models[songIndex] = previousSong;
-      this.models[songIndex - 1] = song;
+      if(this.at(songIndex - 1)) {
+        var previousSong = this.at(songIndex - 1);
+        this.models[songIndex] = previousSong;
+        this.models[songIndex - 1] = song;
+      }
     });
     this.on('moveDown', function(song) {
       var songIndex = this.indexOf(song);
-      var nextSong = this.at(songIndex + 1);
-      this.models[songIndex] = nextSong;
-      this.models[songIndex + 1] = song;
+      if(this.at(songIndex + 1)){
+        var nextSong = this.at(songIndex + 1);
+        this.models[songIndex] = nextSong;
+        this.models[songIndex + 1] = song;
+      }
     });
   },
 
