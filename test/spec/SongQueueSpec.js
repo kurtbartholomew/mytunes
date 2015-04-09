@@ -83,4 +83,26 @@ describe('SongQueue', function() {
       SongModel.prototype.play.restore();
     });
   });
+
+  describe('moveUp', function(){
+    it('moves the song up one position in the queue', function(){
+      var songQueue = new SongQueue();
+      songQueue.add(songData1);
+      songQueue.add(songData2);
+      songData2.moveUp();
+      expect(songQueue.at(0)).to.equal(songData2);
+      expect(songQueue.at(1)).to.equal(songData1);
+    });
+  });
+
+  describe('moveDown', function(){
+    it('moves the song down one position in the queue', function(){
+      var songQueue = new SongQueue();
+      songQueue.add(songData1);
+      songQueue.add(songData2);
+      songData1.moveDown();
+      expect(songQueue.at(0)).to.equal(songData2);
+      expect(songQueue.at(1)).to.equal(songData1);
+    });
+  });
 });
