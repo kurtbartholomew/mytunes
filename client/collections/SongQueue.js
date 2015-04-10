@@ -6,6 +6,7 @@ var SongQueue = Songs.extend({
       if(this.length === 1){
         this.playFirst();
       }
+      //localStorage.setItem('songQueue',JSON.stringify(this));
     },this);
 
     this.on('ended', function(){
@@ -32,6 +33,9 @@ var SongQueue = Songs.extend({
         this.models[songIndex] = nextSong;
         this.models[songIndex + 1] = song;
       }
+    });
+    this.on('all', function(){
+      localStorage.setItem('songQueue',JSON.stringify(this));
     });
   },
 
